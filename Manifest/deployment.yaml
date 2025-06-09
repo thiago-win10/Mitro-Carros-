@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mitro-vehicle-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mitro-vehicle-api
+  template:
+    metadata:
+      labels:
+        app: mitro-vehicle-api
+    spec:
+      containers:
+      - name: mitro-vehicle-api
+        image: mitroregistry123456.azurecr.io/mitro-vehicle-api:latest
+        ports:
+        - containerPort: 5001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mitro-vehicle-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: mitro-vehicle-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5001
