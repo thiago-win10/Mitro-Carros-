@@ -1,12 +1,12 @@
 
 services:
   api:
-    container_name: mitro-api
+    container_name: businessinfo-api
     build:
       context: ./  # Usando o diretório raiz como contexto
       dockerfile: Dockerfile
     ports:
-      - "5000:5001"
+      - "5000:5002"
     depends_on:
       - redis
     environment:

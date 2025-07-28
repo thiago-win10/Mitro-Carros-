@@ -2,8 +2,8 @@ trigger:
 - main
 
 variables:
-  dockerRegistryServiceConnection: 'MitroRegistry-Connection'  # Nome da conexão com o ACR
-  imageRepository: 'mitro-vehicle-api'
+  dockerRegistryServiceConnection: 'BusinessInfoRegistry-Connection'  # Nome da conexão com o ACR
+  imageRepository: 'business-info-api'
   containerRegistry: 'mitroregistry123456.azurecr.io'
   dockerfilePath: 'Dockerfile'
   tag: '$(Build.BuildId)'

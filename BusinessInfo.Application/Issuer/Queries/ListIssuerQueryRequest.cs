@@ -1,0 +1,14 @@
+﻿using BusinessInfo.Application.Common.Models.Response;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinessInfo.Application.Issuer.Queries
+{
+    public class ListIssuerQueryRequest : IRequest<ResponseApiBase<List<ListIssuerQueryResponse>>>
+    {
+    }
+}

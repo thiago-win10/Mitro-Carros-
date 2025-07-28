@@ -14,17 +14,17 @@ COPY . .
 RUN ls -R /src
 
 # Restaurar dependências
-RUN dotnet restore "MitroVehicle.Internal.API/MitroVehicle.Internal.API.csproj"
+RUN dotnet restore "BusinessInfo.Internal.API/BusinessInfo.Internal.API.csproj"
 
 # Build do projeto
-RUN dotnet build "MitroVehicle.Internal.API/MitroVehicle.Internal.API.csproj" -c Release -o /app/build
+RUN dotnet build "BusinessInfo.Internal.API/BusinessInfo.Internal.API.csproj" -c Release -o /app/build
 
 # Publicar o projeto
 FROM build AS publish
-RUN dotnet publish "MitroVehicle.Internal.API/MitroVehicle.Internal.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "BusinessInfo.Internal.API/BusinessInfo.Internal.API.csproj" -c Release -o /app/publish
 
 # Imagem final
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MitroVehicle.Internal.API.dll"]
+ENTRYPOINT ["dotnet", "BusinessInfo.Internal.API.dll"]
