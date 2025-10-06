@@ -1,22 +1,20 @@
-﻿//using MediatR;
-//using MitroVehicle.Application.Common.Models.Response;
-//using MitroVehicle.Domain.Entities;
-//using MitroVehicle.Domain.Enumerators;
-//using System.Text.Json.Serialization;
+﻿using BusinessInfo.Application.Common.Models.Response;
+using BusinessInfo.Domain.Enumerators;
+using MediatR;
 
-//namespace MitroVehicle.Application.VehicleSaved.Command.Create
-//{
-//    public class CreateVehicleCommandRequest : IRequest<ResponseApiBase<Guid>>
-//    {
-//        [JsonIgnore]
-//        public Guid? ClientId { get; set; }
-//        public string LicensePlate { get; set; }
-//        public int Year { get; set; }
-//        public string NameVehicle { get; set; }
-//        public string UF { get; set; }
-//        public string Renavam { get; set; }
-//        public TypeVechicle TypeVechicle { get; set; }
-//        public string Color { get; set; }
+namespace BusinessInfo.Application.Vehicle.Command.Create
+{
+    public class CreateVehicleCommandRequest : IRequest<ResponseApiBase<Guid>>
+    {
+        public string NameVehicle { get; set; }
+        public string Plate { get; set; }
+        public string Model { get; set; }
+        public string Brand { get; set; }
+        public int Year { get; set; }
+        public string Collor { get; set; }
+        public string Renavam { get; set; }
+        public decimal DailyRate { get; set; }
+        public TypeVechicle TypeVechicle { get; set; }
 
-//    }
-//}
+    }
+}
