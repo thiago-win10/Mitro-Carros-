@@ -35,7 +35,7 @@ sequenceDiagram
 
 ## 🧠 Tecnologias Utilizadas
 
-* .NET 6 / .NET 7
+* .NET 6
 * Dapper / Entity Framework Core
 * SQL Server
 * AutoMapper
