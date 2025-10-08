@@ -11,10 +11,12 @@ namespace BusinessInfo.Application.Company.Command.Create
 {
     public class CreateCompanyCommandRequest : IRequest<ResponseApiBase<Guid>>
     {
+        public Guid Id { get; set; } = Guid.Empty;
         public string Name { get; set; }
         public string Cnpj { get; set; }
         public string Segment { get; set; }
         public Address Address { get; set; }
         public Person ContactPerson { get; set; }
     }
+
 }
