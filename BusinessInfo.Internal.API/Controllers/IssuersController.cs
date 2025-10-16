@@ -38,7 +38,7 @@ namespace BusinessInfo.Internal.API.Controllers
         [HttpGet("list/issuers")]
         [ProducesResponseType(typeof(ResponseApiBase<ListIssuerQueryResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseApiBase<string>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> ListVehicles() =>
+        public async Task<IActionResult> GetListIssuer() =>
             Ok(await _mediator.Send(new ListIssuerQueryRequest()));
 
     }

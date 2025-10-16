@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace BusinessInfo.Common
 {
@@ -35,6 +36,17 @@ namespace BusinessInfo.Common
         public static string UnMask(this string value)
         {
             return value.HasValue() ? value.Replace("-", "").Replace(",", "").Replace("/", "") : value;
+        }
+
+        public static string ToQueryString(this object obj)
+        {
+            var properties = from p in obj.GetType().GetProperties()
+                             where p.GetValue(obj, null) != null
+                             select p.GetValue(obj, null) is DateTime time ?
+                             p.Name + "=" + System.Web.HttpUtility.UrlDecode(time.ToUniversalTime().ToString(format: "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)) :
+                             p.Name + "=" + System.Web.HttpUtility.UrlDecode(p.GetValue(obj, null).ToString());
+            var queryString = string.Join("&", properties.ToArray());
+            return queryString;
         }
     }
 }
